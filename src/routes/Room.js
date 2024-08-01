@@ -67,7 +67,7 @@ const Room = (props) => {
             streamSaver.WritableStream = WritableStream;
         }
         setCurrentURL(window.location.href)
-        socketRef.current = io("http://localhost:8000/"); //Hosted socketIo server only use if you only want to make frontend changes
+        socketRef.current = io("https://file-backend-3pvo.onrender.com/"); //Hosted socketIo server only use if you only want to make frontend changes
         // socketRef.current = io("https://192.168.0.106:8000/");       //This is the local socketIo server
 
         //This statement is used if the user is on the public route
@@ -258,7 +258,7 @@ const Room = (props) => {
     async function sendData (roomID,file,hostName,pubIp){
 
         // You can host your DB and store basic data about the transfer
-        const response = await axios.post('http://localhost:8000/log',{
+        const response = await axios.post('https://file-backend-3pvo.onrender.com/log',{
         "roomID":roomID,
         data:file.size,
         UserID:hostName,
